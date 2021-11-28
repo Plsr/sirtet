@@ -19,3 +19,8 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 40, 40 )
 shape = SubResource( 1 )
+
+[node name="Ray" type="RayCast2D" parent="."]
+position = Vector2( 40, 40 )
+enabled = true
+cast_to = Vector2( 0, 80 )
