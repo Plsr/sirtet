@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Shape.gd" type="Script" id=1]
+[ext_resource path="res://Brick.tscn" type="PackedScene" id=2]
+
+[node name="OBlock" type="Area2D"]
+position = Vector2( 40, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -1 )
+polygon = PoolVector2Array( 0, 40, 0, 0, 80, 1, 80, 41, 40, 41, 40, 81, -40, 81, -40, 40 )
+
+[node name="BR" parent="." groups=["Sprites"] instance=ExtResource( 2 )]
+position = Vector2( 60, 20 )
+
+[node name="TC" parent="." groups=["Sprites"] instance=ExtResource( 2 )]
+position = Vector2( 20, 20 )
+
+[node name="BC" parent="." groups=["Sprites"] instance=ExtResource( 2 )]
+position = Vector2( 20, 60 )
+
+[node name="BL" parent="." groups=["Sprites"] instance=ExtResource( 2 )]
+position = Vector2( -20, 60 )
+
+[node name="Ray" type="RayCast2D" parent="."]
+position = Vector2( 20, 40 )
+enabled = true
+cast_to = Vector2( 0, 80 )
