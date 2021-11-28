@@ -8,8 +8,10 @@ const CELL_SIZE     = 40
 var _current_block = null
 
 # DEBUG SECTION
+# TODO: Make toggable via menu
 var _DEBUG_auto_move_disabled = false
 var _DEBUG_up_move_enabled = false
+var _DEBUG_shop_collision_hints = false
 
 func _ready():
 	print($BlockArea/BlockMoveArea)
@@ -18,8 +20,10 @@ func _ready():
 	add_child(_current_block)
 	_current_block.position = $BlockSpawn/BlockSpawnArea.position
 	
-	
 	$BlockMoveTimer.start()
+	
+	if _DEBUG_shop_collision_hints:
+		get_tree().debug_collisions_hint = true
 
 func _on_BlockMoveTimer_timeout():
 	if _DEBUG_auto_move_disabled:
